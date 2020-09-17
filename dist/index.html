@@ -77,7 +77,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-12 my-auto text-center text-lg-right">
-                        <img id="photo" class="img-fluid" src="assets/zdjecie top.png" alt="">
+                        <picture id="photo" class="img-fluid">
+                            <source srcset="assets/zdjecie_top.webp" type="image/webp">
+                            <source srcset="assets/zdjecie_top.png" type="image/png"> 
+                            <img src="assets/zdjecie_top.png" alt="Alt Text!">
+                        </picture>
                 </div>
             </div>
        </section>
