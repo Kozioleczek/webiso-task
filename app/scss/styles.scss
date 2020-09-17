@@ -1,0 +1,198 @@
+*, :after, :before{
+    box-sizing: border-box;
+}
+
+$theme-colors: (
+     "primary": #1E1E3A,
+     "secondary": #2247CC,
+    //  "muted": #8D8C9A,
+    "muted": #8D8C9A,
+);
+
+$enable-responsive-font-sizes: true; 
+
+$container-max-widths: (
+sm: 540px,
+md: 720px,
+lg: 960px,
+xl: 1500px
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap');
+
+body { 
+    color: black;
+    background: white;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Header
+
+header{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    #logo{
+        img{
+            width: 100px;
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+.main-menu{
+    ul {
+        list-style: none;
+        display: flex;
+        margin-bottom: 0;
+        li {
+            margin-right: 30px;
+            a {
+                color: #AAA8B5;
+                font-weight: bold;
+                position: relative;
+                &::after{
+                    content: '';
+                    margin-top: 10px;
+                    position: absolute;
+                    width: 100%;
+                    height: 4px;
+                    visibility: hidden;
+                    display: block;
+                }
+                &:hover{
+                    color: white;
+                    text-decoration: none;
+                    &::after{
+                        content: '';
+                        @extend .bg-secondary;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Hero Section
+
+#hero{
+    position: relative;
+    height: 900px;
+    z-index: 10;
+    background-color: #1E1E3A;
+    @include media-breakpoint-up(lg) {
+        background:linear-gradient(0deg, rgba(30, 30, 58, 0.9), rgba(30, 30, 58, 0.9)), url('../assets/zdjecie tlo.png');
+        background-size: 70% 100%;
+        background-repeat: no-repeat;
+    }
+
+
+    #hero-overlay{
+        position: absolute;
+        height: 100%;
+        width: 70%;
+        background-color: white;
+    }
+    .container-md{
+        z-index: 20;
+        position: relative;
+        padding-top: 150px;
+        @include media-breakpoint-only(sm) {
+            padding-top: 150px;
+        }
+        @include media-breakpoint-up(lg) {
+            padding-top: 0px;
+        }
+        h1{
+            line-height: 1.1;
+        }
+        .lead{
+            color: #8287A7!important;
+        }
+    }
+}
+
+.webiso-shape{
+    border-top-right-radius: 0;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 0;
+    
+    padding: 10px 20px 10px 20px;
+    @include media-breakpoint-up(lg) {
+        padding: 20px 60px 20px 60px;
+    }
+    &:not(.btn-sm){
+        padding: 17px 30px 17px 31px;
+    }
+}
+
+#about {
+    background-color: #EBEBEB;
+    padding-top: 150px;
+    padding-bottom: 200px;
+    @include media-breakpoint-only(md) {
+        padding-top: 250px;
+        padding-bottom: 250px;
+    }
+    @include media-breakpoint-up(lg) {
+        padding-top: 500px;
+        padding-bottom: 300px;
+        margin-top: -334px;
+    }
+}
+
+#banner{
+    margin-top: -120px;
+    @include media-breakpoint-up(md) {
+        margin-top: -160px;
+    }
+    .banner {
+        padding: 30px;
+        @include media-breakpoint-up(lg) {
+            padding: 90px;
+        }
+    }
+}
+
+.mobile-menu{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    z-index: 100;
+    border-top: 2px solid white;
+    @extend .bg-primary;
+    ul{
+        list-style: none;
+        display: flex;
+        color: white;
+        margin: 0;
+        padding: 0;
+        @extend .justify-content-between;
+        @extend .px-5;
+        li {
+            .icon{
+                img{
+                width: 25px;
+                height: 25px;
+                }
+            }
+        }
+    }
+}
+
+footer{
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
